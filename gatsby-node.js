@@ -59,18 +59,4 @@ exports.createPages = async function createPages({
       reporter.panic(error.message)
     }
   }
-
-  for (const node of data.allMarkdownRemark.nodes) {
-    actions.createPage({
-      path: `/blog/${node.slug}/`,
-      component: path.resolve(`./src/template/post.js`),
-      ownerNodeId: node.id,
-      context: {
-        id: node.id,
-        slug: node.slug,
-      },
-      // You can use any condition here, e.g. only defer older posts
-      defer: node.slug !== 'hello-world',
-    })
-  }
 }
