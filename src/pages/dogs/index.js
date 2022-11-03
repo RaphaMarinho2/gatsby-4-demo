@@ -2,12 +2,14 @@ import * as React from 'react'
 import { Layout } from '../../layout/default'
 import { Link } from 'gatsby'
 import fetch from 'node-fetch'
+import { StaticImage } from 'gatsby-plugin-image'
 
 export default function SSRPage({ serverData }) {
   return (
     <Layout>
       <h1>Dogs!</h1>
       <ul>
+        <StaticImage src="https://avatars.githubusercontent.com/u/92031730?v=4" />
         {Object.keys(serverData?.message).map((key) => (
           <li key={key}>
             <Link to={`/dogs/${key}`}>{key}</Link>
